@@ -7,6 +7,7 @@
             post.title
           }}</NuxtLink>
         </h5>
+        <!-- eslint-disable-next-line vue/no-v-html -->
         <div class="card-text" v-html="post.excerpt"></div>
       </div>
     </div>
@@ -14,7 +15,10 @@
 </template>
 
 <script lang="ts">
+import { PropsDefinition } from 'vue/types/options'
+import { Post } from '~/store/posts'
+
 export default {
-  props: ['post'],
+  props: ['post'] as PropsDefinition<{ post: Post }>,
 }
 </script>
